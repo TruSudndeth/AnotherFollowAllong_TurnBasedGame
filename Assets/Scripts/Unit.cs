@@ -9,6 +9,8 @@ public class Unit : MonoBehaviour
     private Vector3 targetPosition = Vector3.zero; 
     [SerializeField]
     private float moveSpeed = 1;
+    [SerializeField]
+    private float stoppingDistance = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class Unit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((targetPosition - transform.position).sqrMagnitude > 1f)
+        if((targetPosition - transform.position).sqrMagnitude > stoppingDistance) //magic numbers 1f was used replace with variable
         {
             Debug.Log("this code Stops");  //delete code
             var moveDirection = targetPosition - transform.position;
