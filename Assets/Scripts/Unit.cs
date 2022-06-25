@@ -18,6 +18,11 @@ public class Unit : MonoBehaviour
             Debug.Log("this code Stops");  //delete code
             var moveDirection = targetPosition - transform.position;
             transform.position += moveDirection.normalized * Time.deltaTime * moveSpeed; // moveSpeed will overshoot the distance 1f in if condition
+            unitAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            unitAnimator.SetBool("IsWalking", false);
         }
 
         if(Input.GetMouseButtonDown(MouseWorld.MInput.primary))
