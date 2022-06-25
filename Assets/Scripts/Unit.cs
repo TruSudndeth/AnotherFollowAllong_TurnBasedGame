@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3 SetTarget;
-    private Vector3 targetPosition = Vector3.zero; 
-    [SerializeField]
-    private float moveSpeed = 1;
-    [SerializeField]
-    private float stoppingDistance = 0.1f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetTarget = new Vector3(4,0,4);
-    }
+    [SerializeField] private Animator unitAnimator;
+    [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private float stoppingDistance = 0.1f;
+    
+    private Vector3 targetPosition = Vector3.zero;
+
     // Update is called once per frame
     void Update()
     {
