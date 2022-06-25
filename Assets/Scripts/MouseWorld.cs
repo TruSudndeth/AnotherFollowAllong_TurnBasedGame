@@ -5,13 +5,17 @@ using UnityEngine;
 public class MouseWorld : MonoBehaviour
 {
     private static MouseWorld instance;
+    public static MouseInput MInput; 
 
     [SerializeField]
     private LayerMask mousePlainMask;
 
     private void Awake() 
     {
-        instance = this;    
+        instance = this;
+        MInput.primary = 0;
+        MInput.Secondary = 1;
+        MInput.Middle = 2;    
     }
     public static Vector3 GetPosition()
     {
@@ -20,7 +24,7 @@ public class MouseWorld : MonoBehaviour
         return raycastHit.point;
     }
 
-    
+
     //Testing code
     //void FixedUpdate()
     //{
@@ -28,4 +32,11 @@ public class MouseWorld : MonoBehaviour
     //    transform.position = GetPosition();
 
     //}
+}
+
+public struct MouseInput
+{
+    public int primary; // 0
+    public int Secondary; // 1
+    public int Middle; // 2
 }

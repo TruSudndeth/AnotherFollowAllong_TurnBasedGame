@@ -26,9 +26,9 @@ public class Unit : MonoBehaviour
             transform.position += moveDirection.normalized * Time.deltaTime * moveSpeed; // moveSpeed will overshoot the distance 1f in if condition
         }
 
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetMouseButtonDown(MouseWorld.MInput.primary))
         {
-            Move(SetTarget);
+            Move(MouseWorld.GetPosition());
         }
     }
     private void Move(Vector3 _targetPosition)

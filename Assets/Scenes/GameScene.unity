@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SetTarget: {x: 4, y: 0, z: 4}
-  moveSpeed: 100000
+  moveSpeed: 1
   stoppingDistance: 0.1
 --- !u!4 &321792127
 Transform:
@@ -343,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &323696721
 Transform:
   m_ObjectHideFlags: 0
