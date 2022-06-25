@@ -8,7 +8,12 @@ public class Unit : MonoBehaviour
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private float stoppingDistance = 0.1f;
     
-    private Vector3 targetPosition = Vector3.zero;
+    private Vector3 targetPosition;
+
+    private void Awake()
+    {
+        targetPosition = transform.position;
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,12 +30,8 @@ public class Unit : MonoBehaviour
             unitAnimator.SetBool("IsWalking", false);
         }
 
-        if(Input.GetMouseButtonDown(MouseWorld.MInput.primary))
-        {
-            Move(MouseWorld.GetPosition());
-        }
     }
-    private void Move(Vector3 _targetPosition)
+    public void Move(Vector3 _targetPosition)
     {
         targetPosition = _targetPosition;
     }
