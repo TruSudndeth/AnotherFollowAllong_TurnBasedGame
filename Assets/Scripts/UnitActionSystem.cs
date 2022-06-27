@@ -10,7 +10,13 @@ public class UnitActionSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(MouseWorld.MInput.primary))
         {
-         selectedUnit.Move(MouseWorld.GetPosition());
+            Vector3 Position;
+            Collider Selection;
+            MouseWorld.GetPosition(out Position, out Selection);
+            if(Selection.CompareTag("MousePlane"))
+                selectedUnit.Move(Position);
+            if (Selection.CompareTag("Unit"))
+                selectedUnit = Selection.GetComponent<Unit>();
         }
         
     }

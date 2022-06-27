@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MouseWorld : MonoBehaviour
@@ -17,11 +18,12 @@ public class MouseWorld : MonoBehaviour
         MInput.Secondary = 1;
         MInput.Middle = 2;    
     }
-    public static Vector3 GetPosition()
+    public static void GetPosition(out Vector3 RayPosition, out Collider RaySelection)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Camera.main needs to cache unity 2020 auto cache Camera.main
         Debug.Log(Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, instance.mousePlainMask));
-        return raycastHit.point;
+        RayPosition = raycastHit.point;
+        RaySelection = raycastHit.collider;
     }
 
 

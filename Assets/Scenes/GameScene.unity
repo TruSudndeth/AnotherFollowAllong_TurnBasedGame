@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 111712384}
   m_Layer: 6
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: MousePlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePlainMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!4 &985606018
 Transform:
   m_ObjectHideFlags: 0
@@ -700,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
       value: Unit (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
+      propertyPath: m_TagString
+      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725162, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_RootOrder
@@ -825,6 +829,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
+      value: Unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
+      propertyPath: m_TagString
       value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725162, guid: eb9024dbe3307da42ab590383b318754, type: 3}
