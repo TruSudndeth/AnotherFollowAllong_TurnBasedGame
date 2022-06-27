@@ -11,7 +11,6 @@ public class UnitSelectedVisual : MonoBehaviour
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        meshRenderer.enabled = false;
     }
 
     // Update is called once per frame
