@@ -38,7 +38,7 @@ public class UnitActionSystem : MonoBehaviour
             if(Selection.CompareTag("MousePlane"))
                 selectedUnit.Move(Position);
             if (Selection.CompareTag("Unit"))
-                OnSelectedUnitchange?.Invoke(this, EventArgs.Empty);
+                TrySwitchUnit();
         }
 
     }
@@ -47,6 +47,7 @@ public class UnitActionSystem : MonoBehaviour
             if (Selection.TryGetComponent<Unit>(out Unit NewUnit))
             { 
                 selectedUnit = NewUnit;
+                OnSelectedUnitchange?.Invoke(this, EventArgs.Empty);
             }
         }
 

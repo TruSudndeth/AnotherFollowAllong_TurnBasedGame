@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8893813eaf7888145a0a1a2826bfc4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedUnit: {fileID: 321792126}
+  selectedUnit: {fileID: 1471647333}
 --- !u!4 &137124706
 Transform:
   m_ObjectHideFlags: 0
@@ -266,17 +266,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &321792126 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7057272964069725163, guid: eb9024dbe3307da42ab590383b318754, type: 3}
-  m_PrefabInstance: {fileID: 7057272964323359637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96275b7279a48f468fdda4f23cdda67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &323696720
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +679,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471647333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7057272964069725163, guid: eb9024dbe3307da42ab590383b318754, type: 3}
+  m_PrefabInstance: {fileID: 2008317166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96275b7279a48f468fdda4f23cdda67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2008317166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -700,10 +700,6 @@ PrefabInstance:
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
       value: Unit (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
-      propertyPath: m_TagString
-      value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725162, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_RootOrder
@@ -829,10 +825,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
-      value: Unit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
-      propertyPath: m_TagString
       value: Unit
       objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725162, guid: eb9024dbe3307da42ab590383b318754, type: 3}
