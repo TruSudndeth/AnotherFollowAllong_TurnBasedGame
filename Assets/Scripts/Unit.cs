@@ -20,14 +20,13 @@ public class Unit : MonoBehaviour
     {
         if((targetPosition - transform.position).sqrMagnitude > stoppingDistance) //magic numbers 1f was used replace with variable
         {
-            Debug.Log("this code Stops");  //delete code
             var moveDirection = targetPosition - transform.position;
             transform.position += moveDirection.normalized * Time.deltaTime * moveSpeed; // moveSpeed will overshoot the distance 1f in if condition
-            unitAnimator.SetBool("IsWalking", true);
+            if(!unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", true);
         }
         else
         {
-            unitAnimator.SetBool("IsWalking", false);
+           if(unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", false);
         }
 
     }

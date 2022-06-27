@@ -14,7 +14,7 @@ public class UnitActionSystem : MonoBehaviour
     private Vector3 Position;
     private Collider Selection;
 
-    private void awake()
+    private void Awake()
     {
         if(Instance != null)
         {
@@ -23,6 +23,11 @@ public class UnitActionSystem : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        
     }
     private void Update()
     {
@@ -33,22 +38,15 @@ public class UnitActionSystem : MonoBehaviour
             if(Selection.CompareTag("MousePlane"))
                 selectedUnit.Move(Position);
             if (Selection.CompareTag("Unit"))
-                TrySwitchUnit();
+                OnSelectedUnitchange?.Invoke(this, EventArgs.Empty);
         }
 
     }
-        private void TrySwitchUnit()
+        public void TrySwitchUnit()
         {
-        //selectedUnit = Selection.GetComponent<Unit>(); // no null protection use TryGetComponent
-        if (Selection.TryGetComponent<Unit>(out Unit NewUnit))
+            if (Selection.TryGetComponent<Unit>(out Unit NewUnit))
             { 
                 selectedUnit = NewUnit;
-
-                OnSelectedUnitchange?.Invoke(this, EventArgs.Empty);
-                //if (OnSelectedUnitchange != null)
-                //{
-                //   OnSelectedUnitchange(this, EventArgs.Empty);
-                //}
             }
         }
 

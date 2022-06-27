@@ -11,16 +11,23 @@ public class UnitSelectedVisual : MonoBehaviour
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.enabled = false;
     }
 
     // Update is called once per frame
     void Start()
     {
-        UnitActionSystem.Instance.OnSelectedUnitchange += UnitActionSustem_OnSelectedUnitChange;
+        SelectedVisual = UnitActionSystem.Instance.GetSelectedUnit();
+        SelectedVisual.GetComponentInChildren<UnitSelectedVisual>().meshRenderer.enabled = true;
+        UnitActionSystem.Instance.OnSelectedUnitchange += UnitActionSystem_OnSelectedUnitChange;
     }
 
-    private void UnitActionSustem_OnSelectedUnitChange(object sender, EventArgs empty)
+    private void UnitActionSystem_OnSelectedUnitChange(object sender, EventArgs empty)
     {
-
+        SelectedVisual = UnitActionSystem.Instance.GetSelectedUnit();
+        SelectedVisual.GetComponentInChildren<UnitSelectedVisual>().meshRenderer.enabled = false;
+        UnitActionSystem.Instance.TrySwitchUnit();
+        SelectedVisual = UnitActionSystem.Instance.GetSelectedUnit();
+        SelectedVisual.GetComponentInChildren<UnitSelectedVisual>().meshRenderer.enabled = true;
     }
 }
