@@ -21,7 +21,7 @@ public class MouseWorld : MonoBehaviour
     public static void GetPosition(out Vector3 RayPosition, out Collider RaySelection)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Camera.main needs to cache unity 2020 auto cache Camera.main
-        Debug.Log(Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, instance.mousePlainMask));
+        Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, instance.mousePlainMask);
         RayPosition = raycastHit.point;
         RaySelection = raycastHit.collider;
     }
