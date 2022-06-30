@@ -7,7 +7,8 @@ public class Unit : MonoBehaviour
     [SerializeField] private Animator unitAnimator;
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private float stoppingDistance = 0.1f;
-    
+
+    private GridPosition gridPosition;
     private Vector3 targetPosition;
 
     private void Awake()
@@ -15,7 +16,13 @@ public class Unit : MonoBehaviour
         targetPosition = transform.position;
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        LevelGrid.Instance.SetUnitAtGridPosition(gridPosition, this);
+    }
+
+
     void Update()
     {
         if((targetPosition - transform.position).sqrMagnitude > stoppingDistance) //magic numbers 1f was used replace with variable
@@ -28,7 +35,12 @@ public class Unit : MonoBehaviour
         {
            if(unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", false);
         }
-
+        GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        if(newGridPosition != gridPosition)
+        {
+            LevelGrid.Instance.UnitMovedGridPosition(this, gridPosition, newGridPosition);
+            gridPosition = newGridPosition; //update current Position
+        }
     }
     public void Move(Vector3 _targetPosition)
     {

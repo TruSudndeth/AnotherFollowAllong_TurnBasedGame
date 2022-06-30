@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Index out of range when Unit moves outside of Grid
 public class GridSystem
 {
     private int width;
