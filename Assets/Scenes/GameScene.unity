@@ -397,6 +397,7 @@ MonoBehaviour:
   moveSpeed: 10
   rotateSpeed: 100
   zoomAmount: 1
+  smoothZoomSpeed: 15
   inverted: 0
 --- !u!1 &663667914
 GameObject:
