@@ -393,8 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55f5580596aa8444b78e035781ee479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CMVirtualCamera: {fileID: 1123767879}
   moveSpeed: 10
   rotateSpeed: 100
+  zoomAmount: 1
+  inverted: 0
 --- !u!1 &663667914
 GameObject:
   m_ObjectHideFlags: 0
