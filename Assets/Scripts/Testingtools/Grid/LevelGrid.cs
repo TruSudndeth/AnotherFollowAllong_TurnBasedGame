@@ -24,17 +24,19 @@ public class LevelGrid : MonoBehaviour
         //Debug.Log(gridSystem.GetGridPosition(worldPosition));
     }
 
-    public void SetUnitAtGridPosition(GridPosition gridPosition, Unit _unit)
+    public void SetUnitAtGridPosition(GridPosition _gridPosition, Unit _unit)
     {
-        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        GridObject gridObject = gridSystem.GetGridObject(_gridPosition);
         gridObject.Unit = _unit;
     }
-    public Unit GetUnitAtGridPosition(GridPosition gridPosition) // retur Unit
+    public Unit GetUnitAtGridPosition(GridPosition _gridPosition) // retur Unit
     {
-        return null;
+        GridObject gridObject = gridSystem.GetGridObject(_gridPosition);
+        return gridObject.Unit;
     }
-    public void ClearUnitAtGridPosition(GridPosition gridPosition)
+    public void ClearUnitAtGridPosition(GridPosition _gridPosition)
     {
-
+        GridObject gridObject = gridSystem.GetGridObject(_gridPosition);
+        gridObject.Unit = null;
     }
 }
