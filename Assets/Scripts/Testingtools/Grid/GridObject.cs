@@ -7,23 +7,39 @@ public class GridObject
 {
     private GridSystem gridSystem;
     private GridPosition gridPosition;
-    private Unit unit;
+    private List<Unit> unitList;
 
     public GridObject(GridSystem _gridSystem, GridPosition _gridPosition)
     {
         gridSystem = _gridSystem;
         gridPosition = _gridPosition;
+        unitList = new List<Unit>();
     }
 
-    public Unit Unit
+    public void AddUnit(Unit _unit)
     {
-        get{ return unit; }
-        set { unit = value; }
+        unitList.Add(_unit);
+    }
+
+    public void RemoveUnit(Unit _unit)
+    {
+        unitList.Remove(_unit);
+    }
+
+    public List<Unit> GetUnitList()
+    {
+        return unitList;
     }
 
     public override string ToString()
     {
-        string returns = unit != null ? gridPosition.ToString() + Environment.NewLine + unit.name : gridPosition.ToString();
-        return returns;
+
+        string returnUnits = "";
+        foreach(Unit _unit in unitList)
+        {
+            returnUnits += _unit.name + "\n";
+        }
+
+        return gridPosition.ToString() + "\n" + returnUnits;
     }
 }
