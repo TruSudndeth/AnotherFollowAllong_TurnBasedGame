@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10.0f;
     [SerializeField] private float rotateSpeed = 100.0f;
     [SerializeField] private float zoomAmount = 1.0f;
+    [SerializeField] private float smoothZoomSpeed = 1.0f;
     [SerializeField] private bool inverted = false;
     // Update is called once per frame
     void Update()
@@ -62,7 +63,14 @@ public class CameraController : MonoBehaviour
         {
             followOffset.y += zoomAmount * (inverted ? -1 : 1);
         }
+
         followOffset.y = Mathf.Clamp(followOffset.y, MIN_FOLLOW_Y_OFFSET, MAX_FOLLOW_Y_OFFSET);
-        CMTransposer.m_FollowOffset = followOffset;
+        Vector3 smoothZoom = followOffset;
+        if(Mathf.Sqrt(followOffset.y - CMTransposer.m_FollowOffset.y) > 0.10f)
+        {
+            smoothZoom += followOffset * Time.deltaTime * smoothZoomSpeed;
+        }
+        
+        CMTransposer.m_FollowOffset = smoothZoom;
     }
 }
