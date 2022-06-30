@@ -767,6 +767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791568246}
   - component: {fileID: 1791568245}
+  - component: {fileID: 1791568247}
   m_Layer: 0
   m_Name: TestingDel
   m_TagString: Untagged
@@ -786,7 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1453db727a365ac40b2be0eb87387a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridDebugObjectPrefab: {fileID: 5646350164382721855, guid: 6d3d3e434d227c544b73a1e13db86a86, type: 3}
 --- !u!4 &1791568246
 Transform:
   m_ObjectHideFlags: 0
@@ -802,6 +802,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791568247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791568244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c1802969d181148adfee4502180bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridDebugObjectPrefab: {fileID: 5646350164382721855, guid: 6d3d3e434d227c544b73a1e13db86a86, type: 3}
 --- !u!1001 &2008317166
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,8 @@ public class LevelGrid : MonoBehaviour
 
     private Collider Unit;
     private Vector3 worldPosition;
-    // Start is called before the first frame update
+
+
     void Awake()
     {
         gridSystem = new GridSystem(10, 10, 2f);
@@ -18,17 +19,19 @@ public class LevelGrid : MonoBehaviour
 
     private void Update()
     {
-        MouseWorld.GetPosition(out worldPosition, out Unit);
-        Debug.Log(gridSystem.GetGridPosition(worldPosition));
+        // This Showed where the mouse was Passivly 
+        //MouseWorld.GetPosition(out worldPosition, out Unit);
+        //Debug.Log(gridSystem.GetGridPosition(worldPosition));
     }
 
-    public void SetUnitAtGridPosition(GridPosition gridPosition, Unit unit)
+    public void SetUnitAtGridPosition(GridPosition gridPosition, Unit _unit)
     {
-
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        gridObject.Unit = _unit;
     }
-    public Unit GetUnitAtGripPosition(GridPosition gridPosition)
+    public Unit GetUnitAtGridPosition(GridPosition gridPosition) // retur Unit
     {
-
+        return null;
     }
     public void ClearUnitAtGridPosition(GridPosition gridPosition)
     {
