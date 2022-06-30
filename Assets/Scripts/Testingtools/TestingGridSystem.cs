@@ -13,7 +13,7 @@ public class TestingGridSystem : MonoBehaviour
     void Start()
     {
        gridSystem =  new GridSystem(10, 10, 2f);
-        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
+       gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
 
     private void Update()
