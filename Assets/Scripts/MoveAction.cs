@@ -7,19 +7,17 @@ public class MoveAction : MonoBehaviour
     [SerializeField] private Animator unitAnimator;
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private float stoppingDistance = 0.1f;
+    [SerializeField] private int maxMoveDistance = 4;
 
+    private Unit unit;
     private Vector3 targetPosition;
 
 
     private void Awake()
     {
+        unit = GetComponent<Unit>();
         targetPosition = transform.position;
     }
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -37,5 +35,23 @@ public class MoveAction : MonoBehaviour
     public void Move(Vector3 _targetPosition)
     {
         targetPosition = _targetPosition;
+    }
+
+    public List<GridPosition> GetValidActionGridPositionList()
+    {
+        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        GridPosition unitGridPosition = unit.GetGridPosition();
+
+        for (int x = -maxMoveDistance; x < maxMoveDistance; x++)
+        {
+            for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
+            {
+                GridPosition offsetGridPosition = new GridPosition(x, z);
+                GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
+                Debug.Log(testGridPosition);
+            }
+        }
+
+        return validGridPositionList;
     }
 }
