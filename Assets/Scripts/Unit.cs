@@ -5,7 +5,13 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     private GridPosition gridPosition;
- 
+    private MoveAction moveAction;
+
+    private void Awake()
+    {
+        moveAction = GetComponent<MoveAction>();
+    }
+
     private void Start()
     {
         gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
@@ -22,6 +28,11 @@ public class Unit : MonoBehaviour
             LevelGrid.Instance.UnitMovedGridPosition(this, gridPosition, newGridPosition);
             gridPosition = newGridPosition; //update current Position
         }
+    }
+
+    public MoveAction GetMoveAction()
+    {
+        return moveAction;
     }
 
 }
