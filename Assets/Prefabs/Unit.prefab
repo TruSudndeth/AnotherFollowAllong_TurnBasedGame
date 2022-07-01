@@ -158,9 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96275b7279a48f468fdda4f23cdda67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitAnimator: {fileID: 6963484158366855696}
-  moveSpeed: 1
-  stoppingDistance: 0.1
 --- !u!114 &4180275067589893377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd361988488ae47af1c0f5e7038635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitAnimator: {fileID: 6963484158366855696}
+  moveSpeed: 1
+  stoppingDistance: 0.1
 --- !u!1 &7057272964190265976
 GameObject:
   m_ObjectHideFlags: 0

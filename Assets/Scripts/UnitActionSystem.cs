@@ -36,7 +36,7 @@ public class UnitActionSystem : MonoBehaviour
             MouseWorld.GetPosition(out Position, out Selection);
             
             if(Selection.CompareTag("MousePlane"))
-                selectedUnit.Move(Position);
+                selectedUnit.GetComponent<MoveAction>().Move(Position); //SomeHow Cache this to avoid calls.
             if (Selection.CompareTag("Unit"))
                 TrySwitchUnit();
         }
