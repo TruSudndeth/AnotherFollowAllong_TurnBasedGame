@@ -8,16 +8,20 @@ public class SpinAction : MonoBehaviour
 
     private bool startSpinning;
     private bool isActive = false;
+    private float currentSpinAngle;
     public void Update()
     {
         if (!isActive) return;
             if (startSpinning)
             {
                 float addSpinAmount = 360.0f * Time.deltaTime * SpinSpeed;
-                if (addSpinAmount >= 360)
+                currentSpinAngle += addSpinAmount;
+                if (currentSpinAngle >= 360.0f)
                 {
                     addSpinAmount = 0;
                     startSpinning = false;
+                    transform.rotation = Quaternion.Euler(Vector3.zero);
+                    currentSpinAngle = 0;
                 }
                 transform.eulerAngles += new Vector3(0, addSpinAmount, 0);
             } 
@@ -25,5 +29,6 @@ public class SpinAction : MonoBehaviour
     public void Spin()
     {
         startSpinning = true;
+        isActive = true;
     }
 }
