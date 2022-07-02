@@ -5,11 +5,22 @@ using UnityEngine;
 
 public class GridSystemVisual : MonoBehaviour
 {
+    public static GridSystemVisual Instance { get; private set; }
+
     [SerializeField] private Transform gridVisualObj;
 
     private GridVisualSingle[,] gridSystemVisualSingleArray;
     void Awake()
     {
+
+        if (Instance != null)
+        {
+            Debug.Log("There's more than one GridSystemVisual! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         gridSystemVisualSingleArray = new GridVisualSingle[LevelGrid.Instance.GetWidth(),LevelGrid.Instance.GetHeight()];
         for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
         {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TestingGridSystem : MonoBehaviour
 {
     [SerializeField] private Unit unit;
-    [SerializeField] private GridSystemVisual GSV;
 
     private GridPosition lastGridPosition;
 
@@ -28,7 +27,7 @@ public class TestingGridSystem : MonoBehaviour
 
     public void ShowGridPositionList()
     {
-            GSV.HideAllGridPositions();
-            GSV.ShowGridPositionList(unit.GetMoveAction().GetValidActionGridPositionList());
+            GridSystemVisual.Instance.HideAllGridPositions();
+            GridSystemVisual.Instance.ShowGridPositionList(unit.GetMoveAction().GetValidActionGridPositionList());
     }
 }
