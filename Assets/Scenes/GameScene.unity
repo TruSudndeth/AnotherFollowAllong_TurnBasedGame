@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 1606684743}
+  GSV: {fileID: 7191986273436694423}
 --- !u!4 &1791568246
 Transform:
   m_ObjectHideFlags: 0
@@ -990,6 +991,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4180275067589893377, guid: eb9024dbe3307da42ab590383b318754, type: 3}
+      propertyPath: maxMoveDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
       value: Unit (1)
@@ -1228,7 +1233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4180275067589893377, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: maxMoveDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7057272964069725160, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: m_Name
@@ -1291,7 +1296,7 @@ GameObject:
   - component: {fileID: 2188224934397843360}
   - component: {fileID: 7191986273436694423}
   m_Layer: 0
-  m_Name: GridObjectVisual
+  m_Name: GridSystemVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1310,60 +1315,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridVisualObj: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
---- !u!1001 &8395250776065813505
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3126992890157162781, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_Name
-      value: GridObjectVisualSingle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3254768919184078872, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6440d7bbf476bce409c751e803e8c355, type: 3}

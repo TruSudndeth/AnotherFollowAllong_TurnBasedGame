@@ -5,12 +5,30 @@ using UnityEngine;
 public class TestingGridSystem : MonoBehaviour
 {
     [SerializeField] private Unit unit;
+    [SerializeField] private GridSystemVisual GSV;
+
+    private GridPosition lastGridPosition;
+
+    private void Start()
+    {
+        
+        lastGridPosition = unit.GetGridPosition();
+        ShowGridPositionList();
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if (unit.GetGridPosition() != lastGridPosition)
         {
-            unit.GetMoveAction().GetValidActionGridPositionList();
+            lastGridPosition = unit.GetGridPosition();
+            ShowGridPositionList();
         }
+
+    }
+
+    public void ShowGridPositionList()
+    {
+            GSV.HideAllGridPositions();
+            GSV.ShowGridPositionList(unit.GetMoveAction().GetValidActionGridPositionList());
     }
 }

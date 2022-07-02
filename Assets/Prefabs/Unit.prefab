@@ -173,6 +173,7 @@ MonoBehaviour:
   unitAnimator: {fileID: 6963484158366855696}
   moveSpeed: 1
   stoppingDistance: 0.1
+  maxMoveDistance: 1
 --- !u!1 &7057272964190265976
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class GridSystemVisual : MonoBehaviour
     [SerializeField] private Transform gridVisualObj;
 
     private GridVisualSingle[,] gridSystemVisualSingleArray;
-    void Start()
+    void Awake()
     {
         gridSystemVisualSingleArray = new GridVisualSingle[LevelGrid.Instance.GetWidth(),LevelGrid.Instance.GetHeight()];
         for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
@@ -24,10 +24,19 @@ public class GridSystemVisual : MonoBehaviour
 
     public void HideAllGridPositions()
     {
-
+        for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
+        {
+            for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
+            {
+                gridSystemVisualSingleArray[x, z].Hide();
+            }
+        }
     }
     public void ShowGridPositionList(List<GridPosition> _gridPositions)
     {
-
+        foreach(GridPosition gridP in _gridPositions)
+        {
+            gridSystemVisualSingleArray[gridP.x, gridP.z].Show();
+        }
     }
 }
