@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinAction : MonoBehaviour
+public class SpinAction : BaseActions
 {
     [SerializeField] private float SpinSpeed = 1;
 
     private bool startSpinning;
-    private bool isActive = false;
     private float currentSpinAngle;
     public void Update()
     {

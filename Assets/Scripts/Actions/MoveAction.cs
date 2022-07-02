@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 
-public class MoveAction : MonoBehaviour
+public class MoveAction : BaseActions
 {
     [SerializeField] private Animator unitAnimator;
     [SerializeField] private float moveSpeed = 1;
     [SerializeField] private float stoppingDistance = 0.1f;
     [SerializeField] private int maxMoveDistance = 4;
 
-    private bool isActive = false;
-    private Unit unit;
     private Vector3 targetPosition;
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        unit = GetComponent<Unit>();
+        base.Awake();
         targetPosition = transform.position;
     }
     // Update is called once per frame
