@@ -14,6 +14,8 @@ public class UnitActionSystem : MonoBehaviour
     private Vector3 Position;
     private Collider Selection;
 
+
+    //Unit Max Distance set to 4 then quickly changed back to 1 continues to move 4 units FIX!
     private void Awake()
     {
         if (Instance != null)

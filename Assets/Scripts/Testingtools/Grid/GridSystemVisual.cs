@@ -10,8 +10,12 @@ public class GridSystemVisual : MonoBehaviour
     [SerializeField] private Transform gridVisualObj;
 
     private GridVisualSingle[,] gridSystemVisualSingleArray;
+    private Unit unit;
+    private GridPosition lastGridPosition;
     void Awake()
     {
+        unit = UnitActionSystem.Instance.GetSelectedUnit();
+        lastGridPosition = unit.GetGridPosition();
 
         if (Instance != null)
         {
@@ -33,7 +37,16 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
-    public void HideAllGridPositions()
+    private void Update()
+    {
+        if (unit.GetGridPosition() != lastGridPosition || unit != UnitActionSystem.Instance.GetSelectedUnit())
+        {
+            UpdateGridVisuals();
+            lastGridPosition = unit.GetGridPosition();
+        }
+}
+
+public void HideAllGridPositions()
     {
         for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
         {
@@ -49,5 +62,12 @@ public class GridSystemVisual : MonoBehaviour
         {
             gridSystemVisualSingleArray[gridP.x, gridP.z].Show();
         }
+    }
+
+    public void UpdateGridVisuals()
+    {
+        unit = UnitActionSystem.Instance.GetSelectedUnit();
+        HideAllGridPositions();
+        ShowGridPositionList(unit.GetMoveAction().GetValidActionGridPositionList());
     }
 }
