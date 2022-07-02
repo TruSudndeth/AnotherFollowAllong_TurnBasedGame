@@ -913,17 +913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96275b7279a48f468fdda4f23cdda67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1606684743 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7057272964069725163, guid: eb9024dbe3307da42ab590383b318754, type: 3}
-  m_PrefabInstance: {fileID: 7057272964323359637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c96275b7279a48f468fdda4f23cdda67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1791568244
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,8 +943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1453db727a365ac40b2be0eb87387a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 1606684743}
-  GSV: {fileID: 7191986273436694423}
 --- !u!4 &1791568246
 Transform:
   m_ObjectHideFlags: 0
@@ -991,6 +978,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7903781284344549618, guid: eb9024dbe3307da42ab590383b318754, type: 3}
+      propertyPath: SpinSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4180275067589893377, guid: eb9024dbe3307da42ab590383b318754, type: 3}
       propertyPath: maxMoveDistance
       value: 2

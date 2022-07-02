@@ -10,6 +10,7 @@ public class MoveAction : MonoBehaviour
     [SerializeField] private float stoppingDistance = 0.1f;
     [SerializeField] private int maxMoveDistance = 4;
 
+    private bool isActive = false;
     private Unit unit;
     private Vector3 targetPosition;
 
@@ -22,20 +23,23 @@ public class MoveAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((targetPosition - transform.position).sqrMagnitude > stoppingDistance) //magic numbers 1f was used replace with variable
-        {
-            var moveDirection = targetPosition - transform.position;
-            transform.position += moveDirection.normalized * Time.deltaTime * moveSpeed; // moveSpeed will overshoot the distance 1f in if condition
-            if (!unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            if (unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", false);
-        }
+        if (!isActive) return;
+            if ((targetPosition - transform.position).sqrMagnitude > stoppingDistance) //magic numbers 1f was used replace with variable
+            {
+                var moveDirection = targetPosition - transform.position;
+                transform.position += moveDirection.normalized * Time.deltaTime * moveSpeed; // moveSpeed will overshoot the distance 1f in if condition
+                if (!unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", true);
+            }
+            else
+            {
+                if (unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", false);
+                isActive = false;
+            } 
     }
     public void Move(GridPosition _targetPosition)
     {
         targetPosition = LevelGrid.Instance.GetWorldPosition(_targetPosition);
+        isActive = true;
     }
 
     public bool IsValidActionGridPosition(GridPosition gridPosition)

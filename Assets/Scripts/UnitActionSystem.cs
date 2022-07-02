@@ -50,6 +50,10 @@ public class UnitActionSystem : MonoBehaviour
                 TrySwitchUnit();
 
         }
+        if(Input.GetMouseButtonDown(1))
+        {
+            selectedUnit.GetSpinAction().Spin();
+        }
     }
         public void TrySwitchUnit()
         {
