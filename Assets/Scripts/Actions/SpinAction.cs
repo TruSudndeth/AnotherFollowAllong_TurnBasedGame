@@ -33,4 +33,9 @@ public class SpinAction : BaseActions
         startSpinning = true;
         isActive = true;
     }
+
+    public override string GetActionName()
+    {
+        return "Move";
+    }
 }

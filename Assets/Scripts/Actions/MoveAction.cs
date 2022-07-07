@@ -71,4 +71,9 @@ public class MoveAction : BaseActions
 
         return validGridPositionList;
     }
+
+    public override string GetActionName()
+    {
+        return "Spin";
+    }
 }
