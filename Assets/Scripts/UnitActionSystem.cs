@@ -13,6 +13,7 @@ public class UnitActionSystem : MonoBehaviour
     [SerializeField] private Unit selectedUnit;
     private Vector3 Position;
     private Collider Selection;
+    private bool isBusy;
 
 
     //Unit Max Distance set to 4 then quickly changed back to 1 continues to move 4 units FIX!
@@ -33,6 +34,8 @@ public class UnitActionSystem : MonoBehaviour
     }
     private void Update()
     {
+        if (isBusy) return;
+
         if (Input.GetMouseButtonDown(MouseWorld.MInput.primary))
         {
             MouseWorld.GetPosition(out Position, out Selection);
@@ -42,7 +45,8 @@ public class UnitActionSystem : MonoBehaviour
                 GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(Position);
                 if (selectedUnit.GetMoveAction().IsValidActionGridPosition(mouseGridPosition))
                 {
-                    selectedUnit.GetMoveAction().Move(mouseGridPosition);
+                    selectedUnit.GetMoveAction().Move(mouseGridPosition, ClearBusy);
+                    SetBusy();
                 }
                 //selectedUnit.GetMoveAction().Move(Position)
             }
@@ -52,9 +56,19 @@ public class UnitActionSystem : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(1))
         {
-            selectedUnit.GetSpinAction().Spin();
+            SetBusy();
+            selectedUnit.GetSpinAction().Spin(ClearBusy);
         }
     }
+    private void SetBusy()
+    {
+        isBusy = true;
+    }
+    private void ClearBusy()
+    {
+        isBusy = false;
+    }
+
         public void TrySwitchUnit()
         {
             if (Selection.TryGetComponent<Unit>(out Unit NewUnit))

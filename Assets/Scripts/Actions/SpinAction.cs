@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpinAction : BaseActions
-{
+{    
     [SerializeField] private float SpinSpeed = 1;
 
     private bool startSpinning;
@@ -19,14 +20,16 @@ public class SpinAction : BaseActions
                 {
                     addSpinAmount = 0;
                     startSpinning = false;
+                    onActionComplete();
                     transform.rotation = Quaternion.Euler(Vector3.zero);
                     currentSpinAngle = 0;
                 }
                 transform.eulerAngles += new Vector3(0, addSpinAmount, 0);
             } 
     }
-    public void Spin()
+    public void Spin(Action _onActionComplete)
     {
+        onActionComplete = _onActionComplete;
         startSpinning = true;
         isActive = true;
     }

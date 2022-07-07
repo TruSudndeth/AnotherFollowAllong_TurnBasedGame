@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
@@ -32,10 +33,12 @@ public class MoveAction : BaseActions
             {
                 if (unitAnimator.GetBool("IsWalking")) unitAnimator.SetBool("IsWalking", false);
                 isActive = false;
+                onActionComplete();
             } 
     }
-    public void Move(GridPosition _targetPosition)
+    public void Move(GridPosition _targetPosition, Action _onActionComplete)
     {
+        onActionComplete = _onActionComplete;
         targetPosition = LevelGrid.Instance.GetWorldPosition(_targetPosition);
         isActive = true;
     }
